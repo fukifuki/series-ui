@@ -1,6 +1,13 @@
 <h3>{{ title }}</h3>
 <ul>
 	<li *ngFor="let s of series">
-		{{ s.title }}
+		<a [routerLink]="['/series',s.id]">			
+			{{ s.title }}
+		</a>
 	</li>
 </ul>
+
+
+
+
+
