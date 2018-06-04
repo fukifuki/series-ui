@@ -31,4 +31,8 @@ export class SeriesDetailComponent implements OnInit {
   		.subscribe(series => this.series = series);
   }
 
+  goBack(): void {
+    this.location.back();
+  }
+
 }
