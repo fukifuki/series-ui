@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AppRoutingModule } from '../app-routing.module';
 
 import { SeriesListComponent } from './series-list/series-list.component';
+import { SeriesDetailComponent } from './series-detail/series-detail.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule,
   ],
-  declarations: [SeriesListComponent],
+  declarations: [SeriesListComponent, SeriesDetailComponent],
   exports: [
   	SeriesListComponent
   ]
