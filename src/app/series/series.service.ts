@@ -20,7 +20,7 @@ export class SeriesService {
   }
 
   getSeriesById(id: number): Observable<Series> {
-  	return this.http.get<Series>('/server/series/id');
+  	return this.http.get<Series>(`/server/series/${id}`);
   }
 
 }
