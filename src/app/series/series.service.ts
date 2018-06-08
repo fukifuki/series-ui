@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Series } from '../shared/models/series.model';
@@ -21,6 +21,13 @@ export class SeriesService {
 
   getSeriesById(id: number): Observable<Series> {
   	return this.http.get<Series>(`/server/series/${id}`);
+  }
+
+  searchSeries(key, value) {
+  	value = value.trim();
+  	const options = value ? { params: new HttpParams().set('search', `${key}:${value}`) } : {};
+
+  	return this.http.get<Series[]>('/server/series', options);
   }
 
 }
