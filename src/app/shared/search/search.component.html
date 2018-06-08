@@ -1,0 +1,9 @@
+<input #searchBox (keyup)="search(searchBox.value)" />
+
+<ul>
+	<li *ngFor="let s of series$ | async">
+		<a [routerLink]="['/series',s.id]">
+			{{s.title}}
+		</a>
+	</li>
+</ul>
