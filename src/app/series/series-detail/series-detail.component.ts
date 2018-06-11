@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -13,9 +14,10 @@ import { SeriesService } from '../series.service';
 })
 export class SeriesDetailComponent implements OnInit {
 
-	@Input() series: Series;
+	series: Series;
 
   constructor(
+    private router: Router,
   	private route: ActivatedRoute,
   	private seriesService: SeriesService,
   	private location: Location
@@ -33,6 +35,11 @@ export class SeriesDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  goEdit(): void {
+    const seriesId = +this.route.snapshot.paramMap.get('id');
+    this.router.navigate(['series', seriesId, 'edit']);
   }
 
 }

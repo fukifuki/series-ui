@@ -1,0 +1,32 @@
+<!-- <div *ngIf="series"> -->
+	<form *ngIf="series" [formGroup]="seriesForm" (ngSubmit)="onSubmit()" novalidate>
+		<div>
+			<label>Title</label>
+			<input type="text"
+						 formControlName="title">
+		</div>
+		<div>
+			<label>Description</label>
+			<input type="text"
+						 formControlName="description">
+		</div>
+		<div>
+			<label>Year started</label>
+			<input type="number" 
+						 min="1937" max="2099" step="1"
+						 formControlName="yearStarted">
+		</div>
+		<div>
+			<label>Genre</label>
+			<select formControlName="genreName">
+				<option *ngFor="let genreName of genres" [value]="genreName" selected="series.genreName">
+					{{genreName}}
+				</option>
+			</select>
+		</div>
+
+		<button type="submit">Update</button>
+
+		<pre>{{seriesForm.value | json}}</pre>
+	</form>
+<!-- </div> -->

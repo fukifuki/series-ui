@@ -35,6 +35,16 @@ export class SeriesService {
   	return this.http.get<Series>(`/server/series/${id}`);
   }
 
+  updateSeries(series: Series): Observable<Series> {
+    console.log(series);
+    return this.http.put<Series>(`/server/series/${series.id}`, series, httpOptions)
+      .pipe(
+        map(res => {
+          return new Series(res);
+        })
+      );
+  }
+
   searchSeries(key, value) {
   	value = value.trim();
   	const options = value ? { params: new HttpParams().set('search', `${key}:${value}`) } : {};
