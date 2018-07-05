@@ -33,6 +33,11 @@ export class SeriesDetailComponent implements OnInit {
   		.subscribe(series => this.series = series);
   }
 
+  deleteSeries(id: number) {
+    this.seriesService.deleteSeries(id);
+    this.location.back();
+  }
+
   goBack(): void {
     this.location.back();
   }
