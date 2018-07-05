@@ -15,7 +15,7 @@ export class SeriesListComponent implements OnInit {
 
   @Input() title: string;
 
-  constructor(private seriesService: SeriesService) { }
+  constructor(private seriesService:SeriesService) { }
 
   ngOnInit() {
   	this.getSeries();
