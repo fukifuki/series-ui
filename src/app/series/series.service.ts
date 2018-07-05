@@ -20,6 +20,13 @@ export class SeriesService {
   	return this.http.get<Series[]>('/server/series');
   }
 
+  searchSeries(key, value) {
+    value = value.trim();
+    const options = value ? { params: new HttpParams().set('search', `${key}:${value}`) } : {};
+
+    return this.http.get<Series[]>('/server/series', options);
+  }
+
   createSeries(series: Series): Observable<Series> {
     return this.http.post<Series>('/server/series', series, httpOptions)
       .pipe(
@@ -45,11 +52,9 @@ export class SeriesService {
       );
   }
 
-  searchSeries(key, value) {
-  	value = value.trim();
-  	const options = value ? { params: new HttpParams().set('search', `${key}:${value}`) } : {};
-
-  	return this.http.get<Series[]>('/server/series', options);
+  deleteSeries(id: number) {
+    this.http.delete(`/server/series/${id}`)
+      .subscribe(res => console.log('deleted'));
   }
 
 }
