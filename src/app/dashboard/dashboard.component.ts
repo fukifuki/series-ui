@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
 
 	selectionCriterias = ['recommended', 'newest', 'most popular'];
-	// title = 'recommanded';
 
   constructor() { }
 
