@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { Series } from '../../shared/models/series.model';
 import { SeriesService } from '../series.service';
@@ -24,7 +25,7 @@ export class SeriesFormComponent implements OnInit {
 		'Horror' 
 	]
 
-  constructor(private seriesService: SeriesService) { }
+  constructor(private router: Router, private seriesService: SeriesService) { }
 
   ngOnInit() {
   	// call something like genreService.getGenres() here
@@ -39,7 +40,9 @@ export class SeriesFormComponent implements OnInit {
   onSubmit() {
   	this.series = this.seriesForm.value;
   	this.seriesService.createSeries(this.series)
-      .subscribe((series) => this.series = series);
+      .subscribe((series) => { 
+        this.router.navigate(['/series']);
+      });
   	// this.seriesForm.reset();
   }
 
