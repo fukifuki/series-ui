@@ -1,0 +1,18 @@
+<a [routerLink]="['/']">Home</a>
+
+<button *ngIf="!isSignedIn()" (click)="signIn()">Sign in</button>
+
+<div *ngIf="isSignedIn()">
+	<!-- list that gets displayed after user clicks on his profile image -->
+	<img src="" alt="profile img">
+	<ul>
+		<li>Signed in as {{ getUsername() }}
+		</li>
+		<li><a [routerLink]="['/me']">Your profile</a></li>
+		<li><button (click)="signOut()">Sign out</button></li>
+	</ul>
+</div>
+
+<br>
+
+
