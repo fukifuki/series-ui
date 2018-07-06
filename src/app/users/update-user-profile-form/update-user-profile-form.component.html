@@ -1,0 +1,16 @@
+<form *ngIf="user" [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+	<div>
+		<label>Username</label>
+		<input type="text"
+					 formControlName="username">
+	</div>
+	<div>
+		<label>Email</label>
+		<input type="email"
+					 formControlName="email">
+	</div>
+
+	<button type="submit">Update</button>
+
+	<pre>{{userForm.value | json}}</pre>
+</form>
