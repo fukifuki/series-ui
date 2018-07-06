@@ -1,0 +1,8 @@
+<div *ngIf="user">	
+	<h2>{{user.username}}</h2>
+	<p>{{user.email}}</p>
+</div>
+<button (click)="goEdit()">Edit</button>
+<button (click)="deleteAccount()">Delete</button>
+
+<button (click)="goBack()">Back</button>
