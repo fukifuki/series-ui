@@ -1,0 +1,8 @@
+<form [formGroup]="signInForm">
+	
+	<input type="text" formControlName="username" placeholder="Your username">
+
+	<input type="password" formControlName="password" placeholder="Your password">
+
+	<button (click)="signIn()">Sign in</button>
+</form>
