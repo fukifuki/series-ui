@@ -1,0 +1,9 @@
+<div *ngIf="authDetail">	
+	<h2>{{authDetails.username}}</h2>
+	<p>{{authDetails.role}}</p>
+	<p>{{authDetails.enabled}}</p>
+</div>
+<button (click)="goEditAccountSettings()">Edit</button>
+<button (click)="deleteAccount()">Delete</button>
+
+<button (click)="goBack()">Back</button>
