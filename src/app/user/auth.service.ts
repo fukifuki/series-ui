@@ -32,9 +32,8 @@ export class AuthService {
     if (!auth) {
   		return;
   	}
-    console.log("sign in called");
   	this.sessionService.save(auth);
-
+    
     console.log("user id from auth signIn()", auth.userId);
     this.authApi.getAuthDetails(auth.userId)
       .subscribe(

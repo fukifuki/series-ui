@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../../user/auth.service';
+import { AuthDetailsService } from '../../../user/auth-details.service';
 
 
 @Component({
@@ -12,7 +13,8 @@ import { AuthService } from '../../../user/auth.service';
 export class HeaderComponent implements OnInit {
 
   constructor(private router: Router, 
-  						private authService: AuthService
+  						private authService: AuthService,
+              private authDetailsService: AuthDetailsService
   ) {}
 
   ngOnInit() {}
@@ -28,6 +30,10 @@ export class HeaderComponent implements OnInit {
 
   isSignedIn(): boolean {
   	return this.authService.isSignedIn();
+  }
+
+  authDetailsAvailable(): boolean {
+    return this.authDetailsService.authDetails != null;
   }
 
   getUsername(): string {
